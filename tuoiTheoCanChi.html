@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="age" type="text">
+<button onclick="tuoi()" id="ktr">Tra</button>
+<h1 id="hienthi"></h1>
+<script>
+    function tuoi(){
+        let age = +document.getElementById('age').value;
+        let can = age%10
+        let chi = age%12
+        let hien1 =''
+        let hien2 =''
+        switch (can){
+            case 0:
+                hien1 = 'Canh'
+                break
+            case 1:
+                hien1 = 'Tân'
+                break
+            case 2:
+                hien1 = 'Nhâm'
+                break
+            case 3:
+                hien1 = 'Quý'
+                break
+            case 4:
+                hien1 = 'Giáp'
+                break
+            case 5:
+                hien1 = 'Ất'
+                break
+            case 6:
+                hien1 = 'Binh'
+                break
+            case 7:
+                hien1 = 'Đinh'
+                break
+            case 8:
+                hien1 = 'Mậu'
+                break
+            case 9:
+                hien1 = 'Kỳ'
+                break
+        }
+        switch (chi){
+            case 0:
+                hien2 = 'Thân'
+                break
+            case 1:
+                hien2 = 'Dậu'
+                break
+            case 2:
+                hien2 = 'Tuất'
+                break
+            case 3:
+                hien2 = 'Hợi'
+                break
+            case 4:
+                hien2 = 'Tý'
+                break
+            case 5:
+                hien2 = 'Sửu'
+                break
+            case 6:
+                hien2 = 'Dần'
+                break
+            case 7:
+                hien2 = 'Mão'
+                break
+            case 8:
+                hien2 = 'Thìn'
+                break
+            case 9:
+                hien2 = 'Tỵ'
+                break
+            case 10:
+                hien2 = 'Ngọ'
+                break
+            case 11:
+                hien2 = 'Mùi'
+                break
+        }
+        document.getElementById('hienthi').innerHTML = hien1+ ' ' + hien2
+    }
+</script>
+</body>
+</html>

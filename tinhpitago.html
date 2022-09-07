@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="tamgiac" onclick="check()">Check</button>
+<input id="a" type="number">
+<input id="b" type="number">
+<input id="c" type="number">
+<script>
+    function check(){
+        if (a<b+c&&b<c+a&&c<a+b){
+            alert("Đây là tam giác")
+        } else {
+            alert("Đây không phải tam giác")
+        }
+        if (a**=b*b+c*c){
+            alert("Đây là tam giác vuông")
+        } else {
+            alert("Đây không phải tam giác vuông")
+        }
+    }
+</script>
+
+</body>
+</html>
