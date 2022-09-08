@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        background-image: url("drve.jpg");
+    }
+</style>
+<body>
+<img id="zoro" src="zoroo.png"
+style="width: 200px; height: 200px; position: absolute; top: 0; left: 0">
+<img id="robin" src="rob.jpg"
+style="width: 200px; height: 200px; position: absolute; left: 500px ;top: 0">
+<script>
+    let zoroImg = document.getElementById('zoro');
+    let robinImg = document.getElementById('robin');
+    let isRight = false;
+    let isLeft = false;
+    let isUp = false;
+    let isDowm = false;
+
+    document.addEventListener('keydown', function (k) {
+        switch (k.keyCode){
+            case 39:
+                isRight = true;
+                break;
+            case 37:
+                isLeft = true;
+                break;
+            case 38:
+                isUp = true;
+                break;
+            case 40:
+                isDowm = true;
+                break;
+        }
+    })
+    document.addEventListener('keyup', function (r){
+        switch (r.keyCode){
+            case 39:
+                isRight = false;
+                break;
+            case 37:
+                isLeft = false;
+                break;
+            case 38:
+                isUp = false;
+                break;
+            case 40:
+                isDowm = false;
+                break;
+        }
+    })
+    function moveleft(){
+        zoroImg.style.left= parseInt(zoroImg.style.left)-10+'px';
+    }
+    function moveRight(){
+        zoroImg.style.left= parseInt(zoroImg.style.left)+10+'px';
+    }
+    function moveUp(){
+        zoroImg.style.top= parseInt(zoroImg.style.top)-10+'px';
+    }
+    function moveDown(){
+        zoroImg.style.top= parseInt(zoroImg.style.top)+10+'px';
+        }
+    function meet(){
+        alert('My Queen!!!')
+    }
+    let moving =true;
+    function checkVaCham(){
+        let zoroX = parseInt(zoroImg.style.left);
+        let zoroY = parseInt(zoroImg.style.top);
+        let robinX = parseInt(robinImg.style.left);
+        let robinY = parseInt(robinImg.style.top);
+
+        let zoroH = zoroX+parseInt(zoroImg.style.width);
+        let zoroV = zoroY+parseInt(zoroImg.style.height);
+        let robinH = robinX+parseInt(robinImg.style.width);
+        let robinV = robinY+parseInt(robinImg.style.height);
+
+        let isMeetX = zoroH >= robinX && robinH >= zoroX;
+        let isMeetY = zoroY >= robinY && robinV >= zoroV;
+
+        if (isMeetX && isMeetY){
+            meet();
+            zoroImg.style.left = '0px';
+            zoroImg.style.top = '0px';
+            isRight = false;
+            isLeft = false;
+            isUp = false;
+            isDowm = false;
+        }
+        else {
+            if (isRight)moveRight();
+            if (isLeft)moveleft();
+            if (isUp)moveUp();
+            if (isDowm)moveDown();
+        }
+        if (moving) {
+            robinImg.style.top = parseInt(robinImg.style.top) + 10 + 'px'
+            if (parseInt(robinImg.style.top) > window.innerHeight - parseInt(robinImg.style.height)) {
+                moving = false;
+            }
+        }else {
+                robinImg.style.top = parseInt(robinImg.style.top) - 10 +'px'
+                if (parseInt(robinImg.style.top)<0){
+                    moving= true;
+                }
+        }
+        requestAnimationFrame(checkVaCham);
+    }
+    requestAnimationFrame(checkVaCham);
+</script>
+
+</body>
+</html>
